@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    image-rendering: pixelated;
+}
+
+.screen {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loginScreen {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+.login-box {
+    background: rgba(20, 20, 40, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+    width: 400px;
+}
+
+.login-box h1 {
+    text-align: center;
+    color: #00ff88;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #00ff88;
+    letter-spacing: 3px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00ff88;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.tab.active {
+    background: #00ff88;
+    color: #000;
+    font-weight: bold;
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+.form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff88;
+    color: #fff;
+    font-family: inherit;
+    border-radius: 5px;
+}
+
+.form input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    color: #000;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: #00cc6a;
+    box-shadow: 0 0 20px #00ff88;
+}
+
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 20px;
+}
+
+.message.error {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff6666;
+    border: 1px solid #ff0000;
+}
+
+.message.success {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    border: 1px solid #00ff88;
+}
+
+#menuScreen {
+    background: radial-gradient(circle at center, #1a1a3e, #000);
+}
+
+.menu-container {
+    text-align: center;
+}
+
+.menu-container h1 {
+    font-size: 64px;
+    color: #00ff88;
+    text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88; }
+    to { text-shadow: 0 0 30px #00ffaa, 0 0 60px #00ffaa; }
+}
+
+.user-info {
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #aaa;
+}
+
+.user-info strong {
+    color: #00ff88;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.menu-btn {
+    padding: 20px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    letter-spacing: 2px;
+}
+
+.menu-btn:hover {
+    background: #00ff88;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #00ff88;
+}
+
+.menu-btn.logout {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
+.menu-btn.logout:hover {
+    background: #ff4444;
+    color: #000;
+}
+
+.customizer-container, .shop-container {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background: #111;
+    overflow-y: auto;
+}
+
+.custom-header, .shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid #00ff88;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.btn-back {
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-back:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+.customizer-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 20px;
+}
+
+.editor-panel {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.editor-tools {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tool-btn {
+    padding: 8px 16px;
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.tool-btn.active {
+    background: #00ff88;
+    color: #000;
+    border-color: #00ff88;
+}
+
+.color-picker {
+    margin-bottom: 15px;
+}
+
+.color-picker input {
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#planeEditor, #planePreview {
+    background: #000;
+    border: 2px solid #00ff88;
+    cursor: crosshair;
+    image-rendering: pixelated;
+    display: block;
+    margin: 0 auto;
+}
+
+.editor-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #333;
+}
+
+.editor-info strong {
+    color: #00ff88;
+}
+
+.preview-panel {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.preview-panel h3 {
+    margin-bottom: 15px;
+    color: #00ff88;
+}
+
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.shop-item {
+    background: #1a1a1a;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.shop-item:hover {
+    border-color: #00ff88;
+    transform: translateY(-3px);
+}
+
+.shop-item canvas {
+    background: #000;
+    border: 1px solid #333;
+    margin-bottom: 10px;
+    image-rendering: pixelated;
+}
+
+.shop-item h4 {
+    color: #00ff88;
+    margin-bottom: 5px;
+}
+
+.shop-item .price {
+    color: #ffaa00;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.shop-item button {
+    padding: 8px 16px;
+    background: #00ff88;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.shop-item button:disabled {
+    background: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.weapon-slots {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.weapon-slots h3 {
+    color: #00ff88;
+    margin-bottom: 15px;
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.slot {
+    padding: 15px;
+    background: #000;
+    border: 1px dashed #555;
+    text-align: center;
+    cursor: pointer;
+}
+
+.slot.equipped {
+    border: 1px solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+}
+
+#gameScreen {
+    background: #000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#gameScreen.active {
+    display: flex;
+}
+
+#gameCanvas {
+    background: #000;
+    border: 2px solid #00ff88;
+    image-rendering: pixelated;
+}
+
+.game-hud {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border: 1px solid #00ff88;
+    border-radius: 5px;
+}
+
+.hud-item {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.btn-pause {
+    padding: 5px 15px;
+    background: transparent;
+    border: 1px solid #ffaa00;
+    color: #ffaa00;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.game-overlay.active {
+    display: flex;
+}
+
+.game-overlay h2 {
+    font-size: 64px;
+    color: #ff4444;
+    text-shadow: 0 0 20px #ff4444;
+}
+
+.game-overlay p {
+    font-size: 24px;
+    color: #fff;
+}
+
+.game-overlay p span {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.game-overlay .btn-primary {
+    width: auto;
+    padding: 15px 40px;
+}
