@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portfolio - Ultimate Collection</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-text">GAME</span>
+            <span class="logo-accent">PORTFOLIO</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#games">Games</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="ULTIMATE GAME COLLECTION">ULTIMATE GAME COLLECTION</h1>
+            <p class="subtitle">Three Epic Games in One Portfolio</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToGames()">
+                    <span>Play Now</span>
+                    <div class="btn-shine"></div>
+                </button>
+                <button class="btn-secondary" onclick="showTutorial()">
+                    <span>Tutorial</span>
+                </button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card card-1">
+                <img src="https://images.unsplash.com/photo-1612287230217-969b698cb8d1?w=400" alt="Sudoku">
+                <span>Sudoku</span>
+            </div>
+            <div class="floating-card card-2">
+                <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=400" alt="Chess">
+                <span>Chess AI</span>
+            </div>
+            <div class="floating-card card-3">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400" alt="Airplane">
+                <span>Air Force</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="games-section">
+        <h2 class="section-title">Choose Your Game</h2>
+        <div class="games-grid">
+            <div class="game-card" onclick="location.href='sudoku/index.html'">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1612287230217-969b698cb8d1?w=600" alt="Sudoku">
+                    <div class="card-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Sudoku Master</h3>
+                    <p>Customizable grid puzzle game with sound effects</p>
+                    <div class="card-tags">
+                        <span>Puzzle</span>
+                        <span>Logic</span>
+                        <span>Custom Grid</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="location.href='chess/index.html'">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?w=600" alt="Chess">
+                    <div class="card-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Chess AI Pro</h3>
+                    <p>Advanced AI opponent with move analysis</p>
+                    <div class="card-tags">
+                        <span>Strategy</span>
+                        <span>AI Bot</span>
+                        <span>Analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="location.href='airplane/index.html'">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600" alt="Airplane">
+                    <div class="card-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Pixel Air Force</h3>
+                    <p>Customizable pixel shooter with save system</p>
+                    <div class="card-tags">
+                        <span>Shooter</span>
+                        <span>Pixel Art</span>
+                        <span>Custom Build</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title">About This Project</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Built with pure HTML5, CSS3, and JavaScript. No frameworks, just raw coding skills.</p>
+                <ul class="features-list">
+                    <li>Responsive Design</li>
+                    <li>Advanced AI Algorithms</li>
+                    <li>Custom Graphics Engine</li>
+                    <li>Local Storage System</li>
+                    <li>Audio Synthesis</li>
+                </ul>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Games</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Lines of Code</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% Effort</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="tutorial-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeTutorial()">&times;</span>
+            <h2>How to Use</h2>
+            <div class="tutorial-slides">
+                <div class="slide active">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Tutorial 1">
+                    <h3>Step 1: Choose Game</h3>
+                    <p>Select any game from the main menu</p>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="Tutorial 2">
+                    <h3>Step 2: Configure</h3>
+                    <p>Customize settings according to your preference</p>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b2b0a?w=800" alt="Tutorial 3">
+                    <h3>Step 3: Play & Enjoy</h3>
+                    <p>Start playing and have fun!</p>
+                </div>
+            </div>
+            <div class="slide-controls">
+                <button onclick="changeSlide(-1)">Previous</button>
+                <button onclick="changeSlide(1)">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Game Portfolio. Built with passion.</p>
+        <div class="social-links">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
