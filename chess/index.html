@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess AI Pro</title>
+    <link rel="stylesheet" href="css/chess.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>CHESS AI PRO</h1>
+            <button onclick="location.href='../index.html'" class="btn-back">← Back</button>
+        </header>
+
+        <div class="game-layout">
+            <div class="left-panel">
+                <div class="player-info" id="playerBlack">
+                    <div class="player-name">Black (AI)</div>
+                    <div class="player-score">Score: <span id="blackScore">0</span></div>
+                </div>
+
+                <div id="chessBoard" class="chess-board"></div>
+
+                <div class="player-info" id="playerWhite">
+                    <div class="player-name">White (You)</div>
+                    <div class="player-score">Score: <span id="whiteScore">0</span></div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="controls">
+                    <button onclick="newGame()" class="btn-control">New Game</button>
+                    <button onclick="undoMove()" class="btn-control">Undo</button>
+                    <button onclick="toggleAIHelp()" id="aiHelpBtn" class="btn-control">AI Help: OFF</button>
+                </div>
+
+                <div class="score-details">
+                    <h3>Score Breakdown</h3>
+                    <div class="score-item">
+                        <span>Position:</span>
+                        <span id="positionScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Pieces:</span>
+                        <span id="piecesScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Threats:</span>
+                        <span id="threatsScore">0</span>
+                    </div>
+                </div>
+
+                <div class="analysis-panel">
+                    <h3>Move Analysis</h3>
+                    <div id="analysisContent" class="analysis-content">
+                        <p>Make a move to see analysis</p>
+                    </div>
+                </div>
+
+                <div class="move-history">
+                    <h3>Move History</h3>
+                    <div id="moveHistory" class="history-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/chess.js"></script>
+</body>
+</html>
