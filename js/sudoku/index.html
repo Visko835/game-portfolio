@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Master</title>
+    <link rel="stylesheet" href="css/sudoku.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>SUDOKU MASTER</h1>
+            <div class="header-controls">
+                <button onclick="location.href='../index.html'" class="btn-back">← Back</button>
+                <button onclick="toggleSound()" id="soundBtn" class="btn-sound">🔊 Sound ON</button>
+            </div>
+        </header>
+
+        <div class="settings-panel">
+            <div class="setting-group">
+                <label>Grid Size:</label>
+                <select id="gridSize" onchange="updateGridSize()">
+                    <option value="2">2x2 (Easy)</option>
+                    <option value="3" selected>3x3 (Normal)</option>
+                    <option value="4">4x4 (Hard)</option>
+                    <option value="5">5x5 (Expert)</option>
+                </select>
+            </div>
+            <div class="setting-group">
+                <label>Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <button onclick="generatePuzzle()" class="btn-new-game">New Game</button>
+        </div>
+
+        <div class="game-info">
+            <div class="info-item">
+                <span class="info-label">Time:</span>
+                <span id="timer" class="info-value">00:00</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Mistakes:</span>
+                <span id="mistakes" class="info-value">0/3</span>
+            </div>
+        </div>
+
+        <div id="sudokuGrid" class="sudoku-grid"></div>
+
+        <div class="number-pad">
+            <button onclick="inputNumber(1)" class="num-btn">1</button>
+            <button onclick="inputNumber(2)" class="num-btn">2</button>
+            <button onclick="inputNumber(3)" class="num-btn">3</button>
+            <button onclick="inputNumber(4)" class="num-btn">4</button>
+            <button onclick="inputNumber(5)" class="num-btn">5</button>
+            <button onclick="inputNumber(6)" class="num-btn">6</button>
+            <button onclick="inputNumber(7)" class="num-btn">7</button>
+            <button onclick="inputNumber(8)" class="num-btn">8</button>
+            <button onclick="inputNumber(9)" class="num-btn">9</button>
+            <button onclick="inputNumber(0)" class="num-btn erase">ERASE</button>
+        </div>
+
+        <div id="gameMessage" class="game-message"></div>
+    </div>
+
+    <script src="js/sudoku.js"></script>
+</body>
+</html>
