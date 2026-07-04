@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Air Force</title>
+    <link rel="stylesheet" href="css/airplane.css">
+</head>
+<body>
+    <div id="loginScreen" class="screen active">
+        <div class="login-box">
+            <h1>PIXEL AIR FORCE</h1>
+            <div class="tabs">
+                <button onclick="switchTab('login')" class="tab active" id="loginTab">Login</button>
+                <button onclick="switchTab('register')" class="tab" id="registerTab">Register</button>
+            </div>
+            
+            <div id="loginForm" class="form active">
+                <input type="text" id="loginUsername" placeholder="Username" autocomplete="off">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <div id="loginMessage" class="message"></div>
+                <button onclick="login()" class="btn-primary">Login</button>
+            </div>
+            
+            <div id="registerForm" class="form">
+                <input type="text" id="regUsername" placeholder="Username" autocomplete="off">
+                <input type="password" id="regPassword" placeholder="Password">
+                <input type="password" id="regConfirm" placeholder="Confirm Password">
+                <div id="regMessage" class="message"></div>
+                <button onclick="register()" class="btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menuScreen" class="screen">
+        <div class="menu-container">
+            <h1>PIXEL AIR FORCE</h1>
+            <div class="user-info">
+                <span>Welcome, <strong id="currentUser"></strong></span>
+                <span>Points: <strong id="userPoints">0</strong></span>
+            </div>
+            
+            <div class="menu-buttons">
+                <button onclick="showScreen('gameScreen'); startGame()" class="menu-btn">START GAME</button>
+                <button onclick="showScreen('customizerScreen'); openCustomizer()" class="menu-btn">CUSTOMIZE PLANE</button>
+                <button onclick="showScreen('shopScreen'); openShop()" class="menu-btn">WEAPON SHOP</button>
+                <button onclick="logout()" class="menu-btn logout">LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="customizerScreen" class="screen">
+        <div class="customizer-container">
+            <header class="custom-header">
+                <h2>PLANE CUSTOMIZER</h2>
+                <button onclick="showScreen('menuScreen')" class="btn-back">← Back</button>
+            </header>
+            
+            <div class="customizer-layout">
+                <div class="editor-panel">
+                    <div class="editor-tools">
+                        <button onclick="setTool('add')" class="tool-btn active" id="toolAdd">+ Add Pixel</button>
+                        <button onclick="setTool('remove')" class="tool-btn" id="toolRemove">- Remove</button>
+                        <button onclick="setTool('color')" class="tool-btn" id="toolColor">🎨 Color</button>
+                        <button onclick="clearPlane()" class="tool-btn">Clear</button>
+                        <button onclick="resetPlane()" class="tool-btn">Reset Default</button>
+                    </div>
+                    <div class="color-picker">
+                        <input type="color" id="pixelColor" value="#ff0000">
+                    </div>
+                    <canvas id="planeEditor" width="400" height="400"></canvas>
+                    <div class="editor-info">
+                        <span>Grid: <strong id="gridSize">16x16</strong></span>
+                        <span>Pixels: <strong id="pixelCount">0</strong></span>
+                    </div>
+                </div>
+                
+                <div class="preview-panel">
+                    <h3>Preview</h3>
+                    <canvas id="planePreview" width="200" height="200"></canvas>
+                    <button onclick="savePlaneDesign()" class="btn-primary">Save Design</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="shopScreen" class="screen">
+        <div class="shop-container">
+            <header class="shop-header">
+                <h2>WEAPON SHOP</h2>
+                <span>Points: <strong id="shopPoints">0</strong></span>
+                <button onclick="showScreen('menuScreen')" class="btn-back">← Back</button>
+            </header>
+            
+            <div class="shop-grid" id="shopGrid"></div>
+            
+            <div class="weapon-slots">
+                <h3>Equipped Weapons</h3>
+                <div id="weaponSlots" class="slots-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gameScreen" class="screen">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="game-hud">
+            <div class="hud-item">Score: <span id="gameScore">0</span></div>
+            <div class="hud-item">Lives: <span id="gameLives">3</span></div>
+            <div class="hud-item">Wave: <span id="gameWave">1</span></div>
+            <button onclick="pauseGame()" class="btn-pause">PAUSE</button>
+        </div>
+        <div id="gameOverScreen" class="game-overlay">
+            <h2>GAME OVER</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Points Earned: <span id="earnedPoints">0</span></p>
+            <button onclick="showScreen('menuScreen'); updateMenuInfo()" class="btn-primary">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="js/airplane.js"></script>
+</body>
+</html>
